@@ -6,12 +6,6 @@ public class Cliente {
 	public String apellido;
 	public Cuenta cuenta;
 	
-	Cliente(String nombre, String apellido,Cuenta cuenta){
-		this.nombre= nombre;
-		this.apellido= apellido;
-		this.cuenta= cuenta;
-	}
-	
 	public String getNombre() {
 		return nombre;
 	}

@@ -6,9 +6,6 @@ public class Banco {
 	private Cliente[] clientes= new Cliente[10];
 	private int nClientes=0;
 	
-	Banco(){		
-	}
-	
 	public boolean AddCliente(Cliente cliente){
 		if(nClientes<10){
 		clientes[nClientes]=cliente;	

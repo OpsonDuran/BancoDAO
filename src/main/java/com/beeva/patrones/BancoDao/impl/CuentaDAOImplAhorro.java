@@ -6,12 +6,16 @@ import com.beeva.patrones.BancoDao.inter.CuentaDAO;
 public class CuentaDAOImplAhorro implements CuentaDAO{
 
 	public boolean Deposito(Cliente cliente, double dinero) {
-		// TODO Auto-generated method stub
-		return false;
+	
+		cliente.cuenta.setBalance(cliente.cuenta.getBalance()+dinero);
+		return true;
 	}
 
 	public boolean Retiro(Cliente cliente, double dinero) {
-		// TODO Auto-generated method stub
+		if(cliente.cuenta.getBalance()<5000){
+			cliente.cuenta.setBalance(cliente.cuenta.getBalance()-dinero);
+			return true;
+		}
 		return false;
 	}
 	
