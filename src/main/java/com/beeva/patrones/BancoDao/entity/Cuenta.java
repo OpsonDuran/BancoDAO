@@ -3,7 +3,8 @@ package com.beeva.patrones.BancoDao.entity;
 public class Cuenta {
 	
 	protected double balance;
-	protected int tipo;
+	private int tipoCuenta;
+	
 	
 	public double getBalance() {
 		return balance;
@@ -11,11 +12,12 @@ public class Cuenta {
 	public void setBalance(double balance) {
 		this.balance = balance;
 	}
-	public int getTipo() {
-		return tipo;
+	public int getTipoCuenta() {
+		return tipoCuenta;
 	}
-	public void setTipo(int tipo) {
-		this.tipo = tipo;
+	public void setTipoCuenta(int tipoCuenta) {
+		this.tipoCuenta = tipoCuenta;
 	}
-
+	
+	
 }

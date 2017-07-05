@@ -1,21 +1,18 @@
 package com.beeva.patrones.BancoDao.impl;
 
-import com.beeva.patrones.BancoDao.entity.Cuenta;
+import com.beeva.patrones.BancoDao.entity.Cliente;
 import com.beeva.patrones.BancoDao.inter.CuentaDAO;
 
 public class CuentaDAOImplAhorro implements CuentaDAO{
 
-	public boolean addCuenta(Cuenta c) {
+	public boolean Deposito(Cliente cliente, double dinero) {
+		// TODO Auto-generated method stub
 		return false;
 	}
 
-	public boolean removCuenta(Cuenta c) {
+	public boolean Retiro(Cliente cliente, double dinero) {
+		// TODO Auto-generated method stub
 		return false;
 	}
-
-	public Cuenta getCuenta(int id) {
-		
-		return null;
-	}
-
+	
 }
