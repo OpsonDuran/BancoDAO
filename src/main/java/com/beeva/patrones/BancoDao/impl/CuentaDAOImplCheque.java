@@ -12,13 +12,13 @@ public class CuentaDAOImplCheque implements CuentaDAO{
 
 	public boolean Deposito(Cliente cliente, double dinero) {
 		
-		cliente.cuenta.setBalance(cliente.cuenta.getBalance()+dinero);
+		cliente.getCuenta().setBalance(cliente.getCuenta().getBalance()+dinero);
 		return true;
 	}
 
 	public boolean Retiro(Cliente cliente, double dinero) {
 		if(strDays[now.get(Calendar.DAY_OF_WEEK) - 1]!="Sabado" && strDays[now.get(Calendar.DAY_OF_WEEK) - 1]!="Domingo"){
-			cliente.cuenta.setBalance(cliente.cuenta.getBalance()-dinero);
+			cliente.getCuenta().setBalance(cliente.getCuenta().getBalance()-dinero);
 			return true;
 		}
 		return false;
