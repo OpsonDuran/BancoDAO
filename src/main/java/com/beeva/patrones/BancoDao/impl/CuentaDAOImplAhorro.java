@@ -12,7 +12,7 @@ public class CuentaDAOImplAhorro implements CuentaDAO{
 	}
 
 	public boolean Retiro(Cliente cliente, double dinero) {
-		if(cliente.cuenta.getBalance()<5000){
+		if(cliente.cuenta.getBalance()>5000){
 			cliente.cuenta.setBalance(cliente.cuenta.getBalance()-dinero);
 			return true;
 		}
