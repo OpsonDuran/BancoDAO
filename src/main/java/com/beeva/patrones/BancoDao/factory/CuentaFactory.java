@@ -7,7 +7,7 @@ import com.beeva.patrones.BancoDao.inter.CuentaDAO;
 
 public class CuentaFactory {
 	
-	public CuentaDAO getFactory(Cuenta cuenta){
+	public CuentaDAO getImplements(Cuenta cuenta){
 		if(cuenta.getTipo()==1){
 			CuentaDAO account = new CuentaDAOImplAhorro();
 			return account ;

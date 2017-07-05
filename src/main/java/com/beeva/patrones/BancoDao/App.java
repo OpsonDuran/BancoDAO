@@ -18,7 +18,7 @@ public class App
         cuenta.setBalance(100);
         cuenta.setTipo(1); 
         CuentaFactory cuentaFactory = new CuentaFactory();
-        CuentaDAO cuentaDAO =  cuentaFactory.getFactory(cuenta);
+        CuentaDAO cuentaDAO =  cuentaFactory.getImplements(cuenta);
         cuentaDAO.addCuenta(cuenta);
         
         System.out.println("balance"+cuentaDAO.getCuenta(1).getBalance());
