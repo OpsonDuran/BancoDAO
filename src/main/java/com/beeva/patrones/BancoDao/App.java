@@ -49,7 +49,6 @@ public class App
 					nombre=lectura.nextLine();
 					System.out.print("Apellido:");
 					apellido=lectura.nextLine();
-				    lectura.nextLine();
 					System.out.println("Tipos de Cuenta");
 					System.out.println("Tipo Ahorro->1");
 					System.out.println("Tipo Cheques->2");
@@ -93,8 +92,7 @@ public class App
 			        opcion= lectura.nextInt();
 			        System.out.println("----------");
 			        CuentaFactory cuentaFactory = new CuentaFactory();
-			        Cuenta consulta = new Cuenta();
-			        CuentaDAO cuentaDAO =  cuentaFactory.getImplements(consulta);
+			        CuentaDAO cuentaDAO =  cuentaFactory.getImplements(usuarios.getCliente(id).getCuenta());
 			    	switch (opcion) {
 					case 1:
 
@@ -109,7 +107,7 @@ public class App
 						break;
 					case 2:
 						System.out.println("----------");
-						System.out.println("Deposito");
+						System.out.println("Retiro");
 						System.out.println("Catidad a Retirar");
 					    dinero= lectura.nextDouble();
 				        cuentaDAO.Retiro(usuarios.getCliente(id), dinero);
