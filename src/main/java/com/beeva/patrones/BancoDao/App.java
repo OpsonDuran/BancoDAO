@@ -36,9 +36,9 @@ public class App
     	
 		//Ingresar usuarios
 
-				System.out.println("numero de usuarios a ingresar");
-				System.out.println("---------------");
+				System.out.print("numero de usuarios a ingresar: ");
 				num=lectura.nextInt();
+				System.out.println("---------------");
 				lectura.nextLine();
 				Banco usuarios= new Banco();
 
@@ -49,9 +49,11 @@ public class App
 					nombre=lectura.nextLine();
 					System.out.print("Apellido:");
 					apellido=lectura.nextLine();
+					System.out.println("---------------");
 					System.out.println("Tipos de Cuenta");
 					System.out.println("Tipo Ahorro->1");
 					System.out.println("Tipo Cheques->2");
+					System.out.println("---------------");
 					System.out.print("Tipo de Cuenta:");
 				    tipocuenta=lectura.nextInt();
 				    lectura.nextLine();
@@ -65,32 +67,35 @@ public class App
 			        cliente.setNombre(nombre);
 			        cliente.setApellido(apellido);
 			        cliente.setCuenta(cuenta);
-			        usuarios.AddCliente(cliente);				    
+			        usuarios.AddCliente(cliente);
+					System.out.println("---------------");				    
 				}
 
+				System.out.println("---------------");
 				System.out.println("Numero de clientes "+ usuarios.getnClientes());
-
-
+				System.out.println("---------------");
 				System.out.println("Informacion del cliente:");
 				for(int i=0;i<usuarios.getnClientes();i++){
-				System.out.println("Nombre del usuario:" +usuarios.getCliente(i).nombre+" "+usuarios.getCliente(i).apellido+"| Tipo cuenta: "+usuarios.getCliente(i).getCuenta().getTipoCuenta()+" | Saldo: $"+usuarios.getCliente(i).getCuenta().getBalance());		
+				System.out.println("Nombre:" +usuarios.getCliente(i).nombre+" "+usuarios.getCliente(i).apellido+"| Tipo cuenta: "+usuarios.getCliente(i).getCuenta().getTipoCuenta()+" | Saldo: $"+usuarios.getCliente(i).getCuenta().getBalance());
+				System.out.println("------------------------------------------------");		
 				}
 				
 				// Cajero
 				System.out.println("---Cajero---");
 				System.out.println("Ingresa usuario");
 				System.out.println("---------------");
-				System.out.println("Id:");
+				System.out.print("Id: ");
 				id=lectura.nextInt();
 				while(true){
 					System.out.println("Informacion del cliente:");
-					System.out.println("Nombre del usuario:" +usuarios.getCliente(id).nombre+" "+usuarios.getCliente(id).apellido+"| Tipo cuenta: "+usuarios.getCliente(id).getCuenta().getTipoCuenta()+" | Saldo: $"+usuarios.getCliente(id).getCuenta().getBalance());		
+					System.out.println("Nombre: " +usuarios.getCliente(id).nombre+" "+usuarios.getCliente(id).apellido+"| Tipo cuenta: "+usuarios.getCliente(id).getCuenta().getTipoCuenta()+" | Saldo: $"+usuarios.getCliente(id).getCuenta().getBalance());		
+					System.out.println("------------------------------------------------");
 					System.out.println("Opciones");
 					System.out.println("1----Deposito");
 					System.out.println("2----Retiro");
-			        System.out.println("Seleccione una opcion");
+					System.out.println("---------------");
+			        System.out.print("Seleccione una opcion: ");
 			        opcion= lectura.nextInt();
-			        System.out.println("----------");
 			        CuentaFactory cuentaFactory = new CuentaFactory();
 			        CuentaDAO cuentaDAO =  cuentaFactory.getImplements(usuarios.getCliente(id).getCuenta());
 			    	switch (opcion) {
@@ -98,7 +103,7 @@ public class App
 
 						System.out.println("----------");
 						System.out.println("Deposito");
-						System.out.println("Catidad a depositar");
+						System.out.print("Catidad a depositar: ");
 					    dinero= lectura.nextDouble();
 				        cuentaDAO.Deposito(usuarios.getCliente(id), dinero);
 						System.out.println("Saldo "+usuarios.getCliente(id).getCuenta().getBalance());
@@ -108,11 +113,15 @@ public class App
 					case 2:
 						System.out.println("----------");
 						System.out.println("Retiro");
-						System.out.println("Catidad a Retirar");
+						System.out.print("Catidad a retirar: ");
 					    dinero= lectura.nextDouble();
-				        cuentaDAO.Retiro(usuarios.getCliente(id), dinero);
-						System.out.println("Saldo "+usuarios.getCliente(id).getCuenta().getBalance());
-						System.out.println("----------");
+					    if(cuentaDAO.Retiro(usuarios.getCliente(id), dinero)==true){
+							System.out.println("Saldo "+usuarios.getCliente(id).getCuenta().getBalance());
+							System.out.println("----------");	
+					    }else{
+							System.out.println("Saldo insuficiente o Dia inabil");
+							System.out.println("----------");
+					    }
 						break;
 
 					default:
